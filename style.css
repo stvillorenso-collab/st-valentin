@@ -172,8 +172,8 @@ body{
 /* HERO CONTENT (moins glacé) */
 .hero-content{
   max-width: 900px;
-  width: min(900px, calc(100% - 120px));
-  margin: 80px auto;
+  width: min(900px, calc(100% - 80px));
+  margin: 40px auto;
   transform: translatey(20vh);
 
   position: relative;
