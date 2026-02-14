@@ -4,6 +4,9 @@
   const prenomSpan = document.getElementById("prenom");
   const signatureSpan = document.getElementById("signature"); // ok si inexistant
   const btnChangerNom = document.getElementById("btnChangerNom");
+  const btnMinPlayer = document.getElementById("btnMinPlayer");
+  const playerInner = document.getElementById("playerInner");
+
 
   const btnReveal = document.getElementById("btnReveal");
   const secret = document.getElementById("secret");
@@ -128,7 +131,7 @@
             pour toi, et si jamais tu souhaites qu'on prenne du temps ensemble
             afin qu'on puisse patir sur de nouvelles bases, je suis là. Je 
             t'aime et je souhaite qu'on puisse continuer à construire de quoi de solide 
-            ensemble why notre passer notre vie ensemble. Je t'aime Steph.
+            ensemble why not passer notre vie ensemble. Je t'aime Steph.
           💗
 
 — (Lorenso)`;
@@ -189,6 +192,32 @@
   function showPlayer() {
     if (playerUI) playerUI.hidden = false;
   }
+  function setPlayerMinimized(min) {
+  if (!playerInner) return;
+  playerInner.classList.toggle("is-min", !!min);
+
+  // optionnel: mémoriser l’état
+  try { localStorage.setItem("player_min", min ? "1" : "0"); } catch(e) {}
+}
+
+function togglePlayerMin() {
+  if (!playerInner) return;
+  const isMin = playerInner.classList.contains("is-min");
+  setPlayerMinimized(!isMin);
+}
+
+if (btnMinPlayer) {
+  btnMinPlayer.addEventListener("click", () => {
+    togglePlayerMin();
+  });
+}
+
+/* Restaure l’état au chargement */
+try {
+  const saved = localStorage.getItem("player_min");
+  if (saved === "1") setPlayerMinimized(true);
+} catch(e) {}
+
   function updatePlayBtn() {
     if (!btnPlayPause || !audioPlayer) return;
     btnPlayPause.textContent = audioPlayer.paused ? "Play" : "Pause";

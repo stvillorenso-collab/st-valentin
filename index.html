@@ -457,8 +457,19 @@
   </audio>
 
   <div class="player" id="playerUI" hidden>
-    <div class="player-inner">
+  <div class="player-inner" id="playerInner">
+
+    <div class="player-head">
       <div class="player-title">🎧 Playlist</div>
+
+      <!-- ✅ bouton réduire -->
+      <button class="player-min" id="btnMinPlayer" type="button" aria-label="Réduire la playlist" title="Réduire">
+        ▾
+      </button>
+    </div>
+
+    <!-- ✅ tout le contenu qu’on veut cacher quand c’est réduit -->
+    <div class="player-body" id="playerBody">
       <div class="player-controls">
         <button class="btn primary" id="btnPlayPause" type="button">Play</button>
         <button class="btn ghost" id="btnStop" type="button">Stop</button>
@@ -466,7 +477,10 @@
       </div>
       <div class="player-hint">Astuce : mets ton mp3 dans <code>/music/song.mp3</code>.</div>
     </div>
+
   </div>
+</div>
+
 
   <!-- MODAL -->
   <div class="modal" id="modal" hidden>

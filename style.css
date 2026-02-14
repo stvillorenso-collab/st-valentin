@@ -719,3 +719,40 @@ main{ position:relative; z-index:1; }
   .surprise-gallery{ grid-template-columns: 1fr; }
   .surprise-img{ height: 260px; }
 }
+/* ===== Playlist: bouton réduire + mode réduit ===== */
+.player-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom: 10px;
+}
+
+.player-min{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  cursor: pointer;
+  display:grid;
+  place-items:center;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+.player-min:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,179,217,.28);
+}
+.player-min:active{ transform: translateY(1px); }
+
+/* ✅ Mode réduit */
+.player-inner.is-min .player-body{
+  display:none;
+}
+.player-inner.is-min{
+  padding: 10px 12px; /* plus compact */
+}
+.player-inner.is-min .player-min{
+  transform: rotate(180deg); /* petite animation */
+}
