@@ -172,15 +172,15 @@ body{
 /* HERO CONTENT (moins glacé) */
 .hero-content{
   max-width: 900px;
-  width: min(900px, calc(100% - 36px));
-  margin: 74px auto 0;
-  padding: 28px 30px;
+  width: min(900px, calc(100% - 120px));
+  margin: 80px auto;
+  transform: translatey(20vh);
 
   position: relative;
   z-index: 2;
 
   /* ✅ moins de blur, fond plus “clean” */
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(0,5px);
   background: linear-gradient(135deg, rgba(10,6,16,.45), rgba(26,11,30,.35));
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 22px;
